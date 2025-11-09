@@ -1,0 +1,28 @@
+# Gramática para expresiones aritméticas con declaraciones
+# Soporta: int, float, +, -, *, /, paréntesis
+# Autor: Sistema ETDS
+# Fecha: Noviembre 2025
+
+# Símbolo inicial: S (Programa)
+# Precedencia: ( ) > * / > + -
+# Asociatividad: izquierda
+
+# Producción inicial: declaraciones y expresiones
+S -> D S | E
+
+# Declaraciones de variables
+D -> int id ; | float id ;
+
+# Expresiones con suma y resta (menor precedencia)
+E -> E + T | E - T | T
+
+# Términos con multiplicación y división (mayor precedencia)
+T -> T * F | T / F | F
+
+# Factores: números, identificadores y paréntesis
+F -> ( E ) | num | id
+
+# NOTAS:
+# - La gramática tiene recursión izquierda en E y T (típico para parsers ascendentes)
+# - Para parser descendente recursivo, se debe eliminar la recursión izquierda
+# - El analizador implementado maneja la recursión izquierda mediante iteración
