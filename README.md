@@ -26,7 +26,8 @@ El sistema realiza:
 
 ---
 # 1. **Diseño de la gramatica**
-´´´ 
+
+
 S  → D S | E
 D  → int id ; | float id ;
 E  → E + T | E - T | T
