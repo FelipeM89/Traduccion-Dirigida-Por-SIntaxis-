@@ -25,12 +25,34 @@ El sistema realiza:
 7. Generar la ETDS.
 
 ---
-# 1. **Diseño de la gramatica**
+## 1. **Diseño de la gramatica**
 
-
+- Gramática Libre de Contexto
+```
 S  → D S | E
 D  → int id ; | float id ;
 E  → E + T | E - T | T
 T  → T * F | T / F | F
 F  → ( E ) | num | id
-´´´
+```
+**Características:**
+
+- Símbolos no terminales: S (Programa), D (Declaración), E (Expresión), T (Término), F (Factor)
+- Símbolos terminales: int, float, id, num, +, -, *, /, (, ), ;
+- Precedencia de operadores: Paréntesis > Multiplicación/División > Suma/Resta
+- Asociatividad: Izquierda para todos los operadores
+  
+## 2. Definición de Atributos
+**Atributos Sintetizados**
+
+Los atributos sintetizados se calculan de abajo hacia arriba en el árbol:  s
+
+| Símbolo | Atributo | Tipo     | Descripción |
+|----------|-----------|----------|--------------|
+| E, T, F  | `val`     | numérico | Valor calculado de la expresión |
+| E, T, F  | `tipo`    | string   | Tipo de dato (por ejemplo `int` o `float`) |
+| E, T, F  | `lugar`   | string   | Variable temporal que contiene el resultado |
+| E, T, F  | `codigo`  | string   | Código intermedio generado |
+| D        | `nombre`  | string   | Nombre de la variable declarada |
+| D        | `tipo_var`| string   | Tipo de la variable |
+
