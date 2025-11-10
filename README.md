@@ -1,7 +1,7 @@
 # Traduccion-Dirigida-Por-SIntaxis-
-### ETDS - Esquema de Traducción Dirigida por la Sintaxis
+# ETDS - Esquema de Traducción Dirigida por la Sintaxis
 ---
-## Descripcion
+## **Descripcion**
 Este proyecto implementa un Esquema de Traducción Dirigida por la Sintaxis (ETDS) completo para una gramática independiente del contexto que maneja expresiones aritméticas con las cuatro operaciones básicas (suma, resta, multiplicación y división).
 El sistema realiza:
 
@@ -14,7 +14,7 @@ El sistema realiza:
 - Cálculo de conjuntos - PRIMEROS, SIGUIENTES y PREDICCIÓN
 
 ---
-## Objetivos 
+## **Objetivos**
 
 1. Diseño de la gramática
 2. Definir atributos
@@ -26,3 +26,10 @@ El sistema realiza:
 
 ---
 # 1. **Diseño de la gramatica**
+´´´ 
+S  → D S | E
+D  → int id ; | float id ;
+E  → E + T | E - T | T
+T  → T * F | T / F | F
+F  → ( E ) | num | id
+´´´
